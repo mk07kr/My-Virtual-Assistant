@@ -11,10 +11,11 @@ import smtplib
 engine = pyttsx3.init('sapi5') #---->used to take voices as inputs or to use in build windows voices
 voices = engine.getProperty('voices')
 engine.setProperty('voice',voices[1].id)
+# Audio voice checked
 
 
 
-def speak(audio): # this function enables the computer to speak 
+def speak(audio): 
     engine.say(audio)
     engine.runAndWait()
 
