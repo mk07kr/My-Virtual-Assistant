@@ -67,13 +67,13 @@ if __name__ == "__main__":
    
     wishMe()
     while(True):
-    # if 1: #----> for one time execution of jarvis
+   
         query=takeCommand().lower()
     
-        #logics for executing tasks based on query
+   
         if 'wikipedia' in query:
             speak('searching wikipedia.....')
-            query = query.replace("wikipedia", "") #----> removing the word wikipedia from the query and searching the query on google
+            query = query.replace("wikipedia", "") 
             results =wikipedia.summary(query,sentences=2)
             speak("According to wikipedia")
             print(results) 
@@ -98,7 +98,7 @@ if __name__ == "__main__":
             music_dir = 'C:\\Users\\anike\\Music'
             songs= os.listdir(music_dir)
             print(songs)
-            os.startfile(os.path.join(music_dir,songs[0])) # here we can use the random module to generate random nos and use that random no to play random songs
+            os.startfile(os.path.join(music_dir,songs[0]))
         
         elif 'the time' in query :
             strTime=datetime.datetime.now().strftime("%H:%M:%S")
@@ -106,7 +106,7 @@ if __name__ == "__main__":
             
      
         
-        elif 'email to aniket' in query : # ----> we can use dictionary here to dtore different names and email addresses
+        elif 'email to MK' in query : 
             try:
                 speak("what should i say!")
                 content=takeCommand()
@@ -114,7 +114,7 @@ if __name__ == "__main__":
                 sendEmail(to,content)
                 speak("Email has been sent!")
             
-            except Exception as e: #--> for sending the email only i have to give acess to the less secure apps to the email aniketraj1274@gmail.com
+            except Exception as e: 
                 print(e)
                 speak("Sorry Mr. Mayank . I am not able to send this email")
                 
