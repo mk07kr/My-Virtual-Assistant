@@ -8,7 +8,7 @@ import webbrowser
 import os
 import smtplib
 
-engine = pyttsx3.init('sapi5') #---->used to take voices as inputs or to use in build windows voices
+engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
 engine.setProperty('voice',voices[1].id)
 # Audio voice checked
@@ -39,7 +39,7 @@ def takeCommand():
     with sr.Microphone() as source:
         print("Listening......")
         r.pause_threshold =1 #----> this is the pause time of the user speaking value
-        audio =r.listen(source) #-->this all are comming from speechRecognition module
+        audio =r.listen(source) #--> comming from speechRecognition module
     
     try:
         print("Recognizing.....")
@@ -49,7 +49,7 @@ def takeCommand():
     except Exception as e:
         # print(e)
         
-        print("Say that Again please!......")
+        print("Sorry ! , Can't recognize at this moment . Can you Speak Again please!......")
         return "None"
     
     return query
@@ -81,7 +81,10 @@ if __name__ == "__main__":
         
         elif 'open youtube' in query:
             webbrowser.open("youtube.com")
-        
+
+        elif 'open github' in query:
+            webbrowser.open("github.com")
+             
         elif 'open google' in query :
             webbrowser.open("google.com")
         
