@@ -6,7 +6,7 @@ import speech_recognition as sr
 import wikipedia
 import webbrowser
 import os
-import smtplib
+
 
 engine = pyttsx3.init('sapi5') #---->used to take voices as inputs or to use in build windows voices
 voices = engine.getProperty('voices')
@@ -54,13 +54,7 @@ def takeCommand():
     
     return query
 
-def sendEmail(to,content):
-    server=smtplib.SMTP('smtp.gmail.com',587)
-    server.ehlo()
-    server.starttls()
-    server.login('youremail@gmail.com', 'your-password-here')
-    server.sendmail('youremail@gmail.com',to,content)
-    server.close()
+
     
        
 if __name__ == "__main__": 
@@ -95,7 +89,7 @@ if __name__ == "__main__":
             webbrowser.open("stackoverflow.com")
         
         elif 'play music' in query:
-            music_dir = 'C:\\Users\\anike\\Music'
+            music_dir = 'C:\\Users\\mk\\Music'
             songs= os.listdir(music_dir)
             print(songs)
             os.startfile(os.path.join(music_dir,songs[0]))
@@ -103,20 +97,6 @@ if __name__ == "__main__":
         elif 'the time' in query :
             strTime=datetime.datetime.now().strftime("%H:%M:%S")
             speak(f"Sir, The time is {strTime}")
-            
-     
-        
-        elif 'email to MK' in query : 
-            try:
-                speak("what should i say!")
-                content=takeCommand()
-                to= "yourEmail@gmail.com"
-                sendEmail(to,content)
-                speak("Email has been sent!")
-            
-            except Exception as e: 
-                print(e)
-                speak("Sorry Mr. Mayank . I am not able to send this email")
                 
                 
         elif 'close' or 'exit' or 'quit' or 'stop' in query:
