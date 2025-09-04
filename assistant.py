@@ -44,6 +44,7 @@ def takeCommand():
     try:
         print("Recognizing.....")
         query=r.recognize_google(audio,language='en-in')
+        
         print(f"User said:{query}\n")
     
     except Exception as e:
